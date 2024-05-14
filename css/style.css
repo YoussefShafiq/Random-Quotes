@@ -1,0 +1,31 @@
+:root {
+    --Montserrat: font-family: "Montserrat", sans-serif;
+}
+
+.home {
+    height: 100vh;
+}
+
+.quote-cont {
+    margin: auto;
+    padding-inline: 240px;
+    text-align: center;
+}
+
+#quote {
+    font-family: var(--Montserrat);
+    font-weight: 500;
+    font-size: 40px;
+    text-align: center;
+}
+
+.btn {
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.btn:hover {
+    background-color: white;
+    border-color: #dc3545;
+    color: #dc3545;
+}
