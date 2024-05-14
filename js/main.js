@@ -73,26 +73,21 @@ function genQoute() {
     let len = quotes.length
     let Q = Math.floor(Math.random() * len);
     let quote = quotes[Q]
-    if (prevQuotes.length == 0) {
-        document.getElementById('quote').innerHTML = quote
+
+    let unique = true
+    for (let i = 0; i < prevQuotes.length; i++) {
+        if (quote === prevQuotes[i]) {
+            unique = false
+        }
+    }
+    if (unique) {
+        document.getElementById('quote').innerHTML = quote;
         prevQuotes.push(quote)
+    } else if (prevQuotes.length == quotes.length) {
+        prevQuotes.splice(0)
+        genQoute()
     }
     else {
-        let unique = true
-        for (let i = 0; i < prevQuotes.length; i++) {
-            if (quote === prevQuotes[i]) {
-                unique = false
-            }
-        }
-        if (unique) {
-            document.getElementById('quote').innerHTML = quote;
-            prevQuotes.push(quote)
-        } else if (prevQuotes.length == quotes.length) {
-            prevQuotes.splice(0)
-            genQoute()
-        }
-        else {
-            genQoute()
-        }
+        genQoute()
     }
 }
