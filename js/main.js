@@ -66,28 +66,18 @@ let quotes = [
 ]
 
 let prevQuotes = []
-console.log(prevQuotes);
-
 
 function genQoute() {
     let len = quotes.length
     let Q = Math.floor(Math.random() * len);
     let quote = quotes[Q]
 
-    let unique = true
-    for (let i = 0; i < prevQuotes.length; i++) {
-        if (quote === prevQuotes[i]) {
-            unique = false
-        }
-    }
-    if (unique) {
+    if (!prevQuotes.includes(quote)) {
         document.getElementById('quote').innerHTML = quote;
         prevQuotes.push(quote)
-    } else if (prevQuotes.length == quotes.length) {
-        prevQuotes.splice(0)
-        genQoute()
-    }
-    else {
+    } else {
+        if (prevQuotes.length == quotes.length)
+            prevQuotes.splice(0)
         genQoute()
     }
 }
